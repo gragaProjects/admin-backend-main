@@ -69,23 +69,8 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 // CORS
-//app.use(cors());
-const allowedOrigins = [
-  'https://admin-frontend-master.vercel.app',
-  'http://localhost:3000' // optional for local testing
-];
+app.use(cors());
 
-app.use(cors({
-  origin: function(origin, callback){
-    if (!origin) return callback(null, true); // allow non-browser requests
-    if (allowedOrigins.indexOf(origin) === -1){
-      return callback(new Error('Not allowed by CORS'), false);
-    }
-    return callback(null, true);
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type','Authorization']
-}));
 // Request logging
 app.use(requestLogger);
 
