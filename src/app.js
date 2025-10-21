@@ -69,7 +69,7 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 // CORS
-app.use(cors());
+app.options('*', cors());
 
 // Request logging
 app.use(requestLogger);
