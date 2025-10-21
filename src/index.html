@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Health Assessment Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f5f7f9;
+            color: #333;
+        }
+        .container {
+            width: 100%;
+            max-width: 850px;
+            margin: 20px auto;
+            border: none;
+            padding: 0;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+        }
+        .logo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-left {
+            justify-content: flex-start;
+        }
+        .logo-right {
+            justify-content: flex-end;
+        }
+        .logo img {
+            background-color: white;
+            padding: 5px;
+            border-radius: 6px;
+            max-height: 60px;
+            max-width: 120px;
+            object-fit: contain;
+        }
+        .center-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 2;
+        }
+        .center-logo-container img {
+            background-color: white;
+            padding: 5px;
+            border-radius: 6px;
+            max-height: 70px;
+            max-width: 140px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .section {
+            margin: 15px;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .section-title {
+            font-weight: bold;
+            color: #2980b9;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+            font-size: 14px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: border 0.3s;
+            font-size: 14px;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        .vital-signs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        .vital-signs-item {
+            display: flex;
+            flex-direction: column;
+            background-color: #f1f9fe;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .vital-signs-item label {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .vital-signs-item input {
+            border: 1px solid #bce0fd;
+            border-radius: 4px;
+            padding: 8px;
+            width: 60%;
+            margin-right: 5px;
+        }
+        .vital-signs-item div {
+            display: flex;
+            align-items: center;
+        }
+        .oral-health-checkboxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: background-color 0.2s;
+        }
+        .checkbox-item:hover {
+            background-color: #e1f0fa;
+        }
+        .checkbox-item input {
+            margin-right: 8px;
+            accent-color: #3498db;
+            cursor: pointer;
+        }
+        .checkbox-item label {
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 15px;
+        }
+        .signature-box {
+            border-top: 2px dashed #3498db;
+            width: 45%;
+            padding-top: 8px;
+            text-align: center;
+        }
+        .signature-box p {
+            color: #555;
+            font-weight: 600;
+        }
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid #eee;
+            padding: 15px;
+            background-color: #f8f9fa;
+            color: #666;
+        }
+        /* Adding special styling for visual assessment */
+        .vision-box {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .vision-label {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .vision-value {
+            flex: 1;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f8ff;
+        }
+        /* Status indicator for normal/abnormal values */
+        .status-normal {
+            background-color: #e6fff2;
+            position: relative;
+        }
+        .status-normal::after {
+            content: "✓";
+            position: absolute;
+            right: 10px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .logo, .center-logo-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo logo-left">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAm4AAABoCAYAAABz/3iVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAADrdJREFUeNrs3c9rXPcZB/Dvs96xZK3Wm7XkjQPeEI9JqBMwhNr4kFNpA6GHXgKBXHoo7aWX0ksPPfTSP6G3QA899NJC7jmF9hRCvIFt4tiL17Gx5bVlWz/W0mpmOt935tHMSKPRjGYk7czeD7yMNZJG+mrmme/7vM/3eaYlhGAAAGAw5XgIAACIGwAAdMU4D0Hf+NeXu4OL+eplbv32zYK9wGMB4NTIXfh0p+gQMuMWmkE0GVzMHNx6J3Pn+g/sxctXbObyVZ4rgBO2e++mFW/dvLD5ztWnPBTEDcSM4LadXN9UxDJ3Pv++nVy5ZEeL39jxwkO7e+sLu3P9B1a9/C0eI4ATMXPxsp1cveQW7/7Vjq5/E67/YIu3virwiBE39LGnT/fMwiMLK5v28S9/Y0dL9+zo9lO78/0f2fzKHR4ngG4HzUa4o8VHNr/yaWiZPeGhIG7oT3NzRfv449e699eZ01a88dBCsWyN40O7f+trH9Hb2XjC4wTQFdPT03Z+tmj5fN5+9nPFbddCuWSNx0ehdfaYh4S4oT80Gk17/vy13b17cCZwlj9lJzMzXshQs9Oj45jwDTtYf8zjBHCiZs7O2Ozs2bjVCKViKTRPj6yx/6K58/BB5fjgoMzDRNzQ2+/L3bv79uxZLfbNN29Y/uxp27h3y159f0Pv29zVH/rX5mc2beHavIdvT549teKVa9yEAHRs7vK3FTObv3zlQs2Kl655m2yjsmVHxzXLTU7ZzJnTVt3f5YESNxxrNptVRe2oVrPG69Vw/N5uqGw/C9X1B6G+vyfe/9Znt2ymVPaRucP6gW2UN2zlznfiu5SjJwBOR9BKN39QdU1TvJZqtK16ULHdbS3DKVptfcPmL12xwtSUP4bFqysPeLCIG07G6upaCFH2aOGBDzPvf3hrXDKb1k1Ztb3Dm5VN3aRavj91dtZOrd/3sTvdtMOL38pmLnxoI3P5Eo8XwLHW1h6Hub//xebvfHdjbOI7MZvWDVutu213b31pGsXLTc7Y7JnTtlHd4gEjbui+ev1VePhw28Ub39m3sYmzo/tKlF2Prl9+8YWPzu2+/Fs6UgqllQcMawMYmbVK1WamT0fXH9r049tWuHi9JW4jnWkPXz2z5xvrdnR8xANH3NBA/IafnIxuxtZNeHpqyu588U+Wn5yIfRPqZlVv1VxvfX1HX19SbrDDMPeO3XjnXSKHINnMGEPnBofWW9QyEx4qPXXrqzCxWbbCxEQ8O1QnXu3rl+v20+/+wZr1Y7t19e18OO1nkJY58YK4oY3QOPIRN/UTVVVcrLZt0z7QTS3z+2/+zdbnZr2nG91mUvFg9Y6VahU7d+48AYMhNmGTrTdnNHqnlJ+KCqafXQdHNckpnmm/UT1T7KK/WXt74aXvs724dN9y2hQ8UR3JDdZd5LbzNS/sn5o1K1y+aNMXL/l2Wv9j1nPEDT2gmVPB+ojLzatvf/vylj387K/t7sQr+/67fYlJCwoOHy7ZTu00axgMTQwabayvhhcv/5tOcG80rDCZuWjgaXMtPj5WO2E9S2vd+IHCpuhlt+PDr/7pZx7W7e61N+zGO+9ZfnIypn6M/hE3DGj0qBF9vZZR7p+mQj/9h/+z9Vw+jsydzdWjtZhGjT4I3VCLW1CpWc3eFJyP6WwLQS3X/Zeo+YQcLt8PPWzMq9G/bD20LOhZj0HTbO50Ga/qbAF1mtaiVu7XvwqNXNE2K1uWK8z6fSVLuLOo6vfA8o/f/9jf1/1S48p5cSOaeaOR1STZJ6R/4qaBMY2upTdhM5tW3Pq6/Tv7pnUjt5ZoG/UfvxbvEzaoVhpHnrfo67FmowkP0NXLYXb2TJT1zMcmNgw+Qw6bz1pWdnOyHrXMiKKp6RFT+TafMa2N0KiWopfVp2yt9tLuP3pki89fhLvTuXD34nQ+P5lvzUKdU+joKnE7xXPcdylviN55HxFMBs+D99r6JCZT3tKXqv/OtixNUDw0ekf84lQwaTrQWEPTaP0yvs3I3RDEm42GtxYl9+nCXbS4pW/UrXq1ow3m0NtR9/rRUdOjpvccr4o0JW2aKZp9dC6Jou6nh5qGvHn1qr17vhge/Pmd8GR9KTxaXbPNl5UwWz9uVrbepzPF02EyP9ESvdNxtC/7uWNQc85D5vcxPf6aPr1QyxLuVuQ8etpSqJg1/fFMfp88H1qClvxONv3elrRF96u3HKc0dsQ6jTtihtOKmwZlkvWRyQzl9FI3+F61bqv7ZfsktOxiPCKXbkmmH3NDTD7hCvzmlDRN68dLRuxQ3FLm3jYy17qTcRzxT0bpkjdX3X/7hTLp3/vQ3+EJH+UzjdiJRviajaYdNRo+UqcNMfTcJSNy2rPcQ+i7pQfRu6iH0c1d/2/Tz5zNFH3atR5DC3q+o+c6eYyS9ylZLtMaPv1N9P5F71MSzdbHqfX1bfob6vdpZF7bdFmMvl9Hyr14SVvL65s+l0lDXHxffCQ/6LXUQtXkcWuZrk1ey9ZRuPR3aN4n83ol90X6t0j+Rto7VLOHi4vRcnpO3EYsbtnRCr0RO3oTDuVZJZ/g5JPdcqO2fLKTw/qG9M2a3YS6Ub2PXPPrFDzTDZYE0Qd9k9EFjM6N5lTcwlmEDZ3EDcTt5F9Tjdhl/74tI3NK8QldZ2e1w3pDm0p75yp6z5JRuCRYSbDqUeaSkbVkKnV8Mh+nX9PgZd+fMunyGL2l+7nHmGQfP9/tIjNK58tIk+UwmVG95Mxu6XPeHr1k2lTrIJJ9wNLXNXkJ0+fRMn+P9PlMlskkizXS1za9LtmCkXRxSLr8eXCbI3jexrQUaOKERwRvMkYv3TXF9IieLzlpuaFXrNEStfT1aonbaOCm9GZ0E9HT7/ORS/3/tOIWvV/NTfTTN2R048WbLjO0jZ6IW+t1ZnQDDGs/0p4M02enGWXxVXXjRpdj42NRFrvvbxYnRoXkyFwSL/Vak2nRsaQYIj+WT4Imi+WTCCl2iuU42fB6YJwTtyRYmf2rtR+L7/MpxpZlJJnXM1mOkT75Si7TkdH0dWp6L9rZg1qmTJP6Tw9X9j1P5a+1WX3fNHx0eVbHrJn14JLnONl3OYlXy3KZ9GUatuTPPVxl2PK+ZI/1qOGm03jjTQsb0hG/5A3Ue+X7Q0TX4xkP2fR0a9w8MNnr7Nk7aZ220y99SIdm0wUO6X3a9JxzrAl6c/s7G5kzj97FR/xOn17yUTWNuOlGUw2ogqY5m/7gZUZG4vPYSAOXBC8dlORGiyIWwtmssKGjuGVH05OIa2lF9mQYuq7pvVMtizDSTSXapcB799HrH41y5Vtd3iTT54P8iouPLkb/l1NLG5JjtfpH3A5qjfDuRD4OamunpPRIWBKvdGvS9w8sHdlLRu7S+8Rp+lXTPOm9h7UEOr13XTrSl/x+2aU0fvbETm8nreMuyRKaJIzJqTLTJxJJnxozu+9zMvKWfcyS1ygZPUyPvCVxTF/X6iYjdEj7iJtu5vio3dhYvOmyN2FrxJIb0m+6ZLQtO9LnwUzvqedX9cYdnZ2OxSXJ7qLZC56y5Lxe6XMWDg4gbrjRfOQtu3dZ+7I0pHvPrUOA6dG55C9/rHW3ynVrj9/oJk2Ph7X85U9G1Dba2BNMBZHxtQcQN3RdOm7ZG46woUvhy8yA+WiY7o/M6Jnf9JnDRHUITwuQNMKmf9nRtPRB1Mm+ZcoaQNuIGwZOdn88woa+jZvPRWaPVkqm0fRv/lSGS3hSAOKGgcKIG8QNoGPEDQCAPkTcAAAYSsQNAICOjPMQYFDcvf6DgfpGl95+n28UADBwGHEDAKAjxA0AgI4QNwAAwYG4AAACeUlEQVQAOsLiAgyMm99/dyC/0ZtfXOOrBgBG3AAAiCFuAAB0hLgBANAR+rihr919bZWDjVDZ3g6NZiNMT5YsZ2M2bxN2YXrelibP8NgBAHEDTsoP33svLK7ft7WdFdvaK4eN3VXbqVW8ZefnztvC7KLNnVmwHz98n8cQAIgbcBwOnm2G9eqq3V9ftmdby6Fx3AgXCpft8uyNUMjnfbqzUCjYZDhbOLd7zoqF0/b2pStBx6wRv/QXeZi/DABxA94QtX//6aeg6zP5s3Zj/lqYmCzEqKUbkZ8o2E51w7aqG3YqPE4K2fLFKoP3xQIAcQNi1MbD9ZB/9d9QbzZDqXDGY5YRDVxh+oxVD6tW3i+HRmMj7CeX21sbNj8zz6MIAMQNg02F/O+WL9n4+HjbowKlUskWwr3wfOeJ1Q+qYX1nJSxtrYZGo2HzM6Uwnh/3pQwaZV2Yvxp0XCsBBADihqG2uLkU9uv7IZfL+dRmMvI2OTkZdnbKdntnxe59dT+Eu6XBCw7jMXP5qTAzfdpH/DQip7gtL4/ZQvm2zc+e55EGQNwwuBrNZtwQvNW/r1er4fHmUihlFpg99zNy5Y41Q3rETfHUv/TIGgAQNww0TWOqM4JW3qbXZ2P26vVrkxcmL6mLg7o4LE8s253Nr0P1YN2X8j7Z+iZMTUwRNQAYQArhOlqAIaZNM5K45TNxG8/nbX7unO3trYS95n64v/69lXZXffRu+5tt27y2GTYebYRHDx/Z2lpr/Pr9t3/a4lEGQNwwnD798os4apZOcypGxVKJRxEACRMAAADxBAAgboOGnQMAABh+/xdgABT+EZOpLO+LAAAAAElFTkSuQmCC" alt="The Eye Foundation Logo">
+            </div>
+            
+            <div class="center-logo-container">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAm4AAABoCAYAAABz/3iVAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAFxhJREFUeNrsnX9sVNeZxz/jMT/s8TiOx3bGdvAYHAeHmFRJQ1VSbZSsKtGVqMKqqm5VZbtqpKzaP7rqH9uVVlXVP6JVVanqbv/YlVZ/VKtKVVVtlFVW2lCl2UpJU4UQwjqYGPwL2/gH2ONf4/G4e59773g8M2bGxJ5fz/OR3rz37jz7vHOfufO955x7JsLt27cFAAAAwOKnj10AAAAAQKQBAAAAELUV/JGwAQAAgIU0sQsAAACA5Q+7AAAAAABAAQAAAABECQAAAAIAIEIAAAAARRMAAAAAECEAAAAA8JBJsAsAAAAAGQIAAAAgagAAAACAqAEAAAAAogYAAAAgagAAAAAAUQMAAAAQNQAAAABYvizzT8QuDg1K7tYr8ui6x2R9W4dkUvOSTiYkGY/JXComE5NjMjExLsn5pPi9XmltapFcJqveW5qbJOz3Sx+7HwAAYHmJWo/RH7IvfX295uTWiY3RWn1c19Aucd8qCQa8Eg6FpK21RRqaGmVsckLS87NycTqm8jU1ht1rtPqgRK0Ox6OD0tra0uVoR09Pj+zYscP6+IqI/Ozs2aEVL2r2e3C0KSn1IQAAsAzZsW1bt9GDRn/X6KDRQ0aPGn2v0a1G99n7t6gvmJxOy3g8LvcbPa7zCQ0OygvHjwtiBrAMOHz4sLS3tyuBDX1qc05PT1OZAACLeHbowPuN7jX6tNGmcvuGQiG113JgYuKcNDY2UlkAcFf09/dLOBzO25zRaFQymQyVBgDLSAaN7jH6QDlJswkGg1JXV0dlAcCCiMViKIJtW1tbZWJigkoEgCUoapHo0FC7/bjPcL9P2hpEfJlZww4N6YxZiWbSMpvNSSaXkbncXOH5dCot0Uy68DwWi4nP55M1a9ZIV1eXxFNJVZDTsDNvMnqBRykALFTYtBWd6qxoOQtgc3OzjI6OSlNTExUJUIueNRJI3jb8ZkzGgmMyH/RLrm5OmoMN0h5qlEbZpM5v2BBQx9pVvtbmFmkIeNUxZPzPDj/Sbnxjfl3Dp8UGv2TcbLRE1FYZ/bDR3xsibzTw8QG+NN2fTqvI2cnJsWGVx+MrSOs3KlPXHVJRd1w2PN+VFXnV6Nt+MfplIpGY48sDAIWQaWHTInbu3DkZGhoqEzHTIqa3ubk52bp1q+zevZuKBKgdQcvJVCgu03XDcuXKRRmpvy6zgaQxrGlNV5xFzOeTdatDsj7km7v2zDWZrPPLw/W9Rr6SUh+qr5e/37JF2js6JBdvkExknYQTQdUzKlCGSGk5E0am9ht9QUReMfq0UR1F0+xyqHImk5Hh4WEZGRlR99p5BgIBFVXTs5bLFT09PWoHn1K2KNTL01o2AKCUcuHRUlGzn01PT8vAwIDpOWXU+OnTpyUQCNAbClAropZJ3pL54Kj87ZnP5OzY5zITnJaBmQm5NnZVUtGYpGLx/DE6m4rLxPRNOXttVE6O3xidnEzOnI/MnL+USJ5/fTL69mcTsbOvTk5nXk/FVL7E5LyKzunPK/G5c7Hh609FZ+a+FJuWqdGkRK/E5fbVm6Lzn57OSepGdP6LmYnYV+LR6fOJm2P/fen85a/Nxye/kjBpk7dGJDeTkNS5MfGfH5Wzb16Si+9ck/M3Rsyxxs5fGxs/98Xo+PmPTs6MXv3Dsfj562Oz56OT8ULU7DlFzbxoUZudnZVLly4VnmmB0/lWrVpFKylALclaJjku0xPn5G9vfCCfjJ+TzMSsZKOzkomYYzwl6dtTkromMnNmQfn

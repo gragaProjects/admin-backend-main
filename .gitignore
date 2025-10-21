@@ -1,0 +1,13 @@
+node_modules/
+.env
+*.log
+# Build output
+dist/
+build/
+tmp/
+temp/
+uploads/
+logs/ 
+
+/src/utils - old
+/src/routes/media old.js

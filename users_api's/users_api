@@ -1,0 +1,325 @@
+api design for user app
+
+
+endpoint - <base_url>/api/v1/users/
+
+doctor
+  - get doctor by id api
+  response example
+     {
+        profilePic,
+        name,
+        gender,
+        speciality,
+        education,
+        doctorId,
+        languageSpoken,
+        bio,
+     }
+
+navigator
+- get navigator by id api
+response example
+   {
+      profilePic,
+      name,
+      number, 
+      emailId,
+      gender,
+      languageSpoken,
+      bio,
+   }
+
+appointments
+ - create appointment post api
+    example request body
+    {
+        subprofile,
+        service,
+        speciality,
+        hospital,
+        date,
+        time,
+        additionalInfo,
+        address,
+        createdAt,  
+    }
+ - get appointments api
+   response example
+    {
+        name,
+        service,
+        additionalInfo,
+        hospital,
+        date,
+        time,
+        status,        
+    }
+
+user
+ - create user post api
+    example request body
+    {
+        profilePic,
+        name,
+        emailId,
+        gender,
+        number,
+        dob,
+        bloodGroup,
+        height,
+        weight,
+        createdAt,
+    }
+
+ - update user by id put api
+    example request body
+    {
+        emergencyContact
+        {
+            name,
+            relationship,
+            number,
+        },
+        personalHistory
+        {
+            empStatus,
+            educationLevel,
+            maritalStatus
+        },
+        address 
+        {
+            description,
+            landmark,
+            pinCode,
+            region,
+            state,
+            country,
+            location: {
+                latitude,
+                longitude
+            }
+        },   
+    }
+
+ - get user by id api
+    response example
+    {
+        profilePic,
+        name,
+        emailId,
+        gender,
+        number,
+        dob,
+        bloodGroup,
+        height,
+        weight,
+        createdAt,
+        emergencyContact
+        {
+            name,
+            relationship,
+            number,
+        },
+        accountDetails
+        {
+            userId,
+            password,
+        }
+        personalHistory
+        {
+            empStatus,
+            educationLevel,
+            maritalStatus
+        },
+        address 
+        [  {
+                type,
+                description,
+                landmark,
+                pinCode,
+                region,
+                state,
+                country,
+                location: {
+                    latitude,
+                    longitude
+                }
+            },
+        ]   
+    }
+
+ - get subprofiles list 
+ - get subprofile by id
+ - create subprofile post api
+    example request body and example response
+  [{
+    profilePic,
+        name,
+        emailId,
+        gender,
+        number,
+        dob,
+        bloodGroup,
+        height,
+        weight,
+        createdAt,
+        emergencyContact
+        {
+            name,
+            relationship,
+            number,
+        },
+        accountDetails
+        {
+            userId,
+            password,
+        }
+        personalHistory
+        {
+            empStatus,
+            educationLevel,
+            maritalStatus
+        },
+        address 
+        {
+            type,
+            description,
+            landmark,
+            pinCode,
+            region,
+            state,
+            country,
+            location: {
+                latitude,
+                longitude
+            }
+        },
+       
+  }]
+
+prescription
+ - get prescription by id
+ - get prescription list
+    response example
+    [{
+        pdfUrl,
+        photoUrl,
+        name,
+        date,   
+    }]
+ 
+ - create prescription post api
+    example request body
+    {
+        pdfUrl,
+        photoUrl,
+        name,
+        date,   
+    }
+
+medicalHistory
+ - get medical history by id
+    response example
+    {
+        name,
+        date,
+        pdfUrl,   
+    }
+
+ - get medical history list
+    response example
+    [{
+        name,
+        pdfUrl,   
+    }]
+    
+E-Commerce
+ - get product by id
+    response example
+    {
+        name,
+        price,
+        description,
+        imageUrl[],
+        discountPrice,
+        stock,
+        features[]
+    }
+ - get product list
+    response example
+    [{
+        name,
+        price,
+        description,
+        imageUrl,
+    }]
+    
+Package
+ - get package by id
+    response example
+    {
+        name,
+        price,
+        imageUrl,
+        description,
+        features[],
+    }
+ - get package list
+    response example
+    [{
+        name,
+        price,
+        imageUrl,
+        description
+    }]
+
+
+student api's
+
+
+ - get assessments api
+    response example
+    [{
+        date,
+        description,
+        class,
+    }]
+ 
+ - get infirmary api
+    response example
+   [{
+        complaint,
+        date,
+        status,
+        treatmentNote,
+        consentFrom, 
+    }]
+    
+ - get student by id
+    response example
+    {
+        name,
+        emailId,
+        number,
+        dob,
+        education,
+        address,
+        profilePic,
+        gender,
+        bloodGroup,
+        height,
+        weight,
+    }
+ - get nurse by id
+    response example
+    {
+        name,
+        number,
+        education,
+        speciality,
+        bio,
+        profilePic,
+
+    }
+

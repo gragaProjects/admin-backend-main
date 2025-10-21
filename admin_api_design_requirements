@@ -1,0 +1,176 @@
+
+I want to design apis for the following requirements:
+
+Admins
+    - login from email and password
+    - forgot password from email
+    - reset password from email
+    - crud operations for navigators. 
+    - Get all or search by filters for navigators with pagination
+
+    - crud operations for doctors. 
+    - Get all or search by filters for doctors with pagination
+
+    - crud operations for empanelled doctors. 
+    - Get all or search by filters for empanelled doctors with pagination
+
+    - crud operations for healthcare providers. 
+    - Get all or search by filters for healthcare providers with pagination
+
+    - crud operations for members. 
+    - Get all or search by filters for members with pagination
+    - bulk upload members
+    - assign member to doctor
+    - assign member to navigator
+    - bulk assign members to doctor
+    - bulk assign members to navigator
+    - view member's medical history
+    - download member's identity card
+   
+
+    - crud operations for nurses. 
+    - Get all or search by filters for nurses with pagination
+
+    - crud operations for healthcare providers. 
+    - Get all or search by filters for healthcare providers with pagination
+
+    - crud operations for students. 
+    - Get all or search by filters for students with pagination
+    - bulk upload students
+    - assign student to navigator
+    - bulk assign students to navigator
+    - assign student to nurse
+    - bulk assign students to nurse
+    
+
+    - crud operations for schools. 
+    - Get all or search by filters for schools with pagination
+
+    - crud operations for assessments. 
+    - Get all or search by filters for assessments with pagination
+
+    - crud operations for infirmaries. 
+    - Get all or search by filters for infirmaries with pagination
+
+    - crud operations for appointments. 
+    - Get all or search by filters for appointments with pagination
+
+    - crud operations for products. 
+    - Get all or search by filters for products with pagination
+
+    - crud operations for blogs. 
+    - Get all or search by filters for blogs with pagination
+
+    - crud operations for orders. 
+    - Get all or search by filters for orders with pagination
+
+    - read operation for notifications. 
+
+    - crud operations for subscription plans. 
+    - Get all or search by filters for subscription plans with pagination
+
+    - crud operations for addons. 
+    - Get all or search by filters for addons with pagination
+
+Navigators
+    - login from email and password
+    - forgot password from email
+    - reset password from email
+    - Get his own profile
+
+    - read by id operations for doctors. 
+    - Get all or search by filters for doctors with pagination
+
+    - crud operations for empanelled doctors. 
+    - Get all or search by filters for empanelled doctors with pagination
+
+    - crud operations for healthcare providers. 
+    - Get all or search by filters for healthcare providers with pagination
+
+    - crud operations for members. 
+    - Get all assigned members or search by filters for assigned members with pagination
+    - bulk upload members
+    - assign member to doctor
+    - bulk assign members to doctor
+    - crud operations for member's medical history
+    - download member's identity card
+
+    - crud operations for nurses. 
+    - Get all or search by filters for nurses with pagination
+
+    - crud operations for healthcare providers. 
+    - Get all or search by filters for healthcare providers with pagination
+
+    - crud operations for students. 
+    - Get all or search by filters for students with pagination
+    - assign student to nurse
+    - bulk assign students to nurse
+
+    - crud operations for schools. 
+    - Get all or search by filters for schools with pagination
+
+    - crud operations for assessments. 
+    - Get all or search by filters for assessments with pagination
+    - bulk upload assessments
+    - bulk download assessments
+
+    - crud operations for infirmaries. 
+    - Get all or search by filters for infirmaries with pagination
+
+    - crud operations for appointments. 
+    - Get all or search by filters for appointments with pagination
+
+    - crud operations for blogs. 
+    - Get all or search by filters for blogs with pagination
+
+    - read operation for notifications. 
+
+Doctors
+    - login from email and password
+    - forgot password from email
+    - reset password from email
+    - Get his own profile
+
+    - read by id for assigned navigators. 
+    - get all navigators or search by filters for navigators with pagination
+
+    - read by id operations for members. 
+    - Get all assigned members or search by filters for assigned members with pagination
+    - view operations for member's medical history
+    - download member's identity card
+
+    - update appointment status
+    - read by id operations for appointments. 
+    - Get all assigned appointments or search by filters for assigned appointments with pagination
+    - create prescription
+    - crud operations for blogs. 
+    - Get all his blogs or search by filters for blogs with pagination
+
+    - read operation for notifications. 
+
+Nurses
+    - login from email and password
+    - forgot password from email
+    - reset password from email
+    - Get his own profile
+
+    - crud operations for students. 
+    - Get all assigned students or search by filters for assigned students with pagination
+
+    - crud operations for assessments. 
+    - Get all assigned assessments or search by filters for assigned assessments with pagination
+
+    - crud operations for infirmaries. 
+    - Get all assigned infirmaries or search by filters for assigned infirmaries with pagination
+
+    - read operation for notifications. 
+
+
+
+
+   
+    
+    
+    
+    
+    

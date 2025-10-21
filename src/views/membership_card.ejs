@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssistHealth Membership Card</title>
+    <style>
+        @page {
+            size: 115mm 73mm;
+            margin: 0;
+        }
+        html, body {
+            width: 115mm;
+            height: 73mm;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html, body {
+            width: 115mm;
+            height: 73mm;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .card-container {
+            width: 115mm;
+            height: 73mm;
+            background: black;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            flex: 1;
+            position: relative;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #C68B30;
+            color: white;
+            padding: 6px 25px;
+            font-size: 14px;
+            border-bottom-left-radius: 15px;
+            z-index: 3;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .valid-date {
+            position: absolute;
+            top: 42px;
+            right: 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 8px;
+            padding-right: 10px;
+            z-index: 3;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin: 0;
+            padding-top: 12px;
+            padding-bottom: 15px;
+        }
+
+        .member-section {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .member-info {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 8px;
+            border: 1px solid rgba(198, 139, 48, 0.8);
+            width: 65%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .member-name {
+            font-size: 20px;
+            margin-bottom: 6px;
+            color: white;
+        }
+
+        .member-id {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .member-id span {
+            color: white;
+        }
+
+        .support-text {
+            font-size: 10px;
+            color: white;
+            margin-bottom: 3px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        .phone-numbers {
+            font-size: 14px;
+            color: white;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 0;
+            padding: 0 10px 15px 10px;
+            gap: 0;
+        }
+
+        .footer-content {
+            flex: 1;
+            margin-right: 0;
+            max-width: 78%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0;
+        }
+
+        .footer-text-group {
+            margin-bottom: 6px;
+            padding-top: 3px;
+        }
+
+        .footer-text {
+            font-size: 6.5px;
+            color: white;
+            margin-bottom: 2px;
+            padding-left: 6px;
+            position: relative;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 5px;
+        }
+
+        .footer-text:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-size: 6px;
+            top: 0;
+            color: white;
+        }
+
+        .contact-details {
+            font-size: 8px;
+            color: #4BB6E8;
+            margin-top: 0;
+            padding-left: 6px;
+            white-space: nowrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            max-width: 150px;
+            margin-left: 0;
+            padding: 3px 15px 8px 3px;
+            position: absolute;
+            bottom: 15px;
+            right: 0;
+            transform: scale(0.95);
+            transform-origin: right bottom;
+        }
+
+        .logo-svg {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            padding: 3px;
+        }
+
+        .logo-svg path {
+            fill: #4BB6E8;
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1px;
+            max-width: 125px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            padding-top: 3px;
+        }
+
+        .logo-text {
+            font-size: 12px;
+            color: white;
+            line-height: 1;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            margin-bottom: 1px;
+        }
+
+        .logo-text span {
+            color: #4BB6E8;
+            font-weight: 600;
+        }
+
+        .logo-subtext {
+            font-size: 6.5px;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: left;
+            white-space: nowrap;
+            letter-spacing: 0;
+            margin-bottom: 0;
+            line-height: 1;
+            transform: scaleX(0.95);
+            transform-origin: left;
+        }
+
+        .ecg-line {
+            position: absolute;
+            right: 0;
+            top: 70px;
+            width: 25%;
+            height: 60%;
+            opacity: 0.15;
+            transform: scaleX(-1);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .ecg-line svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="main-content">
+            <div class="premium-badge">Premium</div>
+            <div class="valid-date">Valid upto <%= validDate %></div>
+            
+            <h1 class="card-title">MEMBERSHIP CARD</h1>
+            
+            <div class="member-section">
+                <div class="member-info">
+                    <div class="member-name"><%= memberName %></div>
+                    <div class="member-id">
+                        <span>AssistHealth ID :</span> <%= assistHealthId %>
+                    </div>
+                </div>
+                <div class="ecg-line">
+                    <svg viewBox="0 0 100 20" preserveAspectRatio="none" width="100%" height="100%">
+                        <path d="M0,10 L30,10 L35,0 L40,20 L45,10 L50,10 L55,0 L60,20 L65,10 L100,10" 
+                              stroke="white" 
+                              fill="none" 
+                              stroke-width="0.8"
+                              stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="support-text">Complete Healthcare Support, Just a Call Away</div>
+            <div class="phone-numbers">9611232593/ 9611232519</div>
+        </div>
+
+        <div class="footer-section">
+            <div class="footer-content">
+                <div class="footer-text-group">
+                    <div class="footer-text">Valid For registered members only.</div>
+                    <div class="footer-text">Use this membership card to schedule any AssistHealth services.</div>
+                    <div class="footer-text">Keep these contact numbers handy for quick access to your NavigaLens.</div>
+                </div>
+                <div class="contact-details">support@assisthealth.in | www.assisthealth.in</div>
+            </div>
+            
+            <div class="logo-section">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 127 185">
+                   <image xlink:href="data:image/png;base64,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" x="0" y="0" width="127" height="185"/> 
+                    
+                  </svg>
+                <div class="text-container">
+                    <div class="logo-text">Assist<span>Health</span></div>
+                    <div class="logo-subtext">Personalised Healthcare Support</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

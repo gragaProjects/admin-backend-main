@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Health Assessment Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #000;
+            color: #333;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            height: 80px;
+        }
+        .title {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .container {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .container, .container th, .container td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .section-title {
+            background-color: #001F3F;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            text-transform: uppercase;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            padding-top: 10px;
+            border-top: 2px solid #000;
+        }
+        .checkbox-label {
+            margin-right: 10px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .logo-container img {
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="../src/assets/images/eye_foundation.jpg" alt="Eye Foundation Logo">
+        <div class="logo-container">
+            <img src="../src/assets/images/assist-health-logo.jpg" alt="AssistHealth Logo">
+        </div>
+        <img src="../src/assets/images/school.jpg" alt="School Logo">
+    </div>
+
+    <div class="title">Student Health Assessment Report</div>
+    
+    <table class="container">
+        <tr>
+            <th class="section-title" colspan="4">Student Information</th>
+        </tr>
+        <tr>
+            <td><b>Student Name:</b> John Doe</td>
+            <td><b>Age:</b> 14</td>
+            <td><b>Gender:</b> Male</td>
+            <td><b>AssistHealth ID:</b> AAL98</td>
+        </tr>
+        <tr>
+            <td><b>School Name:</b> WGS</td>
+            <td><b>Grade:</b> 1</td>
+            <td><b>Section:</b> Dew</td>
+            <td><b>Date of Assessment:</b> 24-Mar-2025</td>
+        </tr>
+        
+        <tr>
+            <th class="section-title" colspan="4">Vital Signs</th>
+        </tr>
+        <tr>
+            <td><b>Height:</b> 145 cm</td>
+            <td><b>Weight:</b> 30 kg</td>
+            <td><b>BMI:</b> 30 kg/m²</td>
+            <td><b>Temperature:</b> 98°F</td>
+        </tr>
+        <tr>
+            <td><b>Pulse:</b> 98 BPM</td>
+            <td><b>SpO2:</b> 98%</td>
+            <td><b>BP:</b> Normal</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <th class="section-title" colspan="4">Visual and Hearing Assessment</th>
+        </tr>
+        <tr>
+            <td><b>Right Eye:</b> 6/6</td>
+            <td><b>Left Eye:</b> 6/6</td>
+            <td colspan="2"><b>Hearing Comments:</b> Normal</td>
+        </tr>
+        
+        <tr>
+            <th class="section-title" colspan="4">Oral Health</th>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label class="checkbox-label">Normal <input type="checkbox" checked></label>
+                <label class="checkbox-label">Decayed <input type="checkbox"></label>
+                <label class="checkbox-label">Dental Strains <input type="checkbox"></label>
+                <label class="checkbox-label">Cross Bite <input type="checkbox"></label>
+                <label class="checkbox-label">Dentures <input type="checkbox"></label>
+            </td>
+        </tr>
+        
+        <tr>
+            <th class="section-title" colspan="4">Additional Comments</th>
+        </tr>
+        <tr>
+            <td colspan="4">No additional concerns.</td>
+        </tr>
+    </table>
+    
+    <div class="footer">
+        <p><b>School Health Doctor Signature:</b> _____________</p>
+        <p><b>Parent/Guardian Signature:</b> _____________</p>
+        <p>Email: infoassisthealth@gmail.com | Phone: +91-9611232519 / 69 / 93</p>
+        <p>Address: #850, 3rd Floor, D Block, Opp Cafe Coffee Day, Sahakar Nagar, Bangalore 560092</p>
+    </div>
+</body>
+</html>

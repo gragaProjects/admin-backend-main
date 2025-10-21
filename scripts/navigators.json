@@ -1,0 +1,78 @@
+{
+    "manager":[
+ {
+  "id": 1,
+  "name": "manager",
+  "email": "manager@gmail.com",
+  "gender": "male",
+  "mobile_no": "98077879879",
+  "profile_picture": "user43.jpg",
+  "language_spoken": "tamil,english,malayalam",
+  "password": "$2y$10$2kQNY6pbfu5UqFU3gUQcluRLuLdO5rbk1CLEIj2XXP4ZLOk13M3ey",
+  "isActive": 0,
+  "created_on": "07\/07\/2023"
+ },
+ {
+  "id": 2,
+  "name": "Mrs Swathi A E",
+  "email": "hrassisthealth@gmail.com",
+  "gender": "female",
+  "mobile_no": "9611232519",
+  "profile_picture": "AssistHealth.png",
+  "language_spoken": "english,hindi,kannada",
+  "intro": "A dedicated Health Navigator with a passion for empowering individuals to navigate the complex healthcare system with confidence and ease. Holding a Master's degree in clinical aspects, brings a wealth of knowledge to ensure that individuals and families receive the support and guiding them every step of the way on their healthcare journey.",
+  "password": "$2y$10$iYhr3kXY44Z7EUMwIikbge2qd1qxIDRUZ1V\/VohvwmHXNI6JCVBCq",
+  "isActive": 1,
+  "created_on": "07\/13\/2023"
+ },
+ {
+  "id": 5,
+  "name": "Swathi A E",
+  "email": "infoassisthealth@gmail.com",
+  "gender": "female",
+  "mobile_no": "9611232593",
+  "profile_picture": "WhatsApp_Image_2025-01-04_at_11_33_51_AM.jpeg",
+  "language_spoken": "english,hindi,kannada",
+  "intro": "My name is Swathi A. E., and I hold a Bachelor’s degree in Nursing with over nine years of professional experience in the field. My passion lies in enhancing patient experiences through personalized support, simplifying healthcare navigation, and fostering clear communication among healthcare providers.rnrnI am committed to making healthcare accessible and manageable by helping patients understand their options and addressing barriers to care. It is an honour to be part of your healthcare journey, and I look forward to collaborating with you to achieve your health and wellness goals.",
+  "password": "$2y$10$yoM4KiN\/heUSfjRGbkeGHO8HuBCtk.oV3q2Yr3ERpnzR0QnckET8a",
+  "isActive": 1,
+  "created_on": "10\/10\/2023"
+ },
+ {
+  "id": 8,
+  "name": "Ms. Jui Adhikari",
+  "email": "naviassisthealth@gmail.com",
+  "gender": "female",
+  "mobile_no": "9611232661",
+  "profile_picture": "Jui_Adhikari_ID_Card.pdf",
+  "language_spoken": "english,hindi,kannada",
+  "intro": "I aim to enhance patient experiences by providing personalized support, simplifying healthcare navigation, and ensuring effective communication among providers. My goal is to make healthcare accessible and manageable, helping patients understand their options and overcome any barriers to care. I am trained Staff nurse with over 3 years experience.rnrnThank you for trusting me with your healthcare journey. I look forward to working together to achieve your health and wellness goals.",
+  "password": "$2y$10$NfUxuagMYiGXaa9QkAS1IOWpJEfl9NlCOH65MovNqVlI1ViHKdhU2",
+  "isActive": 1,
+  "created_on": "05\/20\/2024"
+ },
+ {
+  "id": 10,
+  "name": "Test Navigator",
+  "email": "Testassisthealth@gmail.com",
+  "gender": "female",
+  "mobile_no": "9611232661",
+  "language_spoken": "english,hindi,kannada",
+  "password": "$2y$10$jkdx8M3bgVxW.ikltJP4se2oa8GeSL\/hdBYbM4jw5dKymzT5WsK36",
+  "isActive": 1,
+  "created_on": "02\/27\/2025"
+ },
+ {
+  "id": 11,
+  "name": "Dr Sahana",
+  "email": "sales@assisthealth.in",
+  "gender": "female",
+  "mobile_no": "9036455183",
+  "language_spoken": "english,kannada",
+  "intro": "Dentist and experienced in navigation",
+  "password": "$2y$10$PyXb.7htQQwbgufmE65WgO5vL6VtzliFziXZGx\/kBVCIpJM8cHBwK",
+  "isActive": 1,
+  "created_on": "05\/06\/2025"
+ }
+]
+}

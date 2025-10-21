@@ -1,0 +1,206 @@
+// Auth Credentials Collection
+[
+  {
+    "_id": ObjectId("65f2f123a123b456c789d111"),
+    "userId": ObjectId("65f2f123a123b456c789d111"),
+    "userType": "admin",
+    "phoneNumber": "+919876543210",
+    "email": "admin@healthapp.com",
+    "password": "hashedPassword123",
+    "isActive": true,
+    "createdAt": ISODate("2024-03-14T10:00:00Z"),
+    "updatedAt": ISODate("2024-03-14T10:00:00Z")
+  },
+  {
+    "_id": ObjectId("65f2f123a123b456c789d222"),
+    "userId": ObjectId("65f2f123a123b456c789d222"),
+    "userType": "navigator",
+    "phoneNumber": "+919876543211",
+    "email": "navigator@healthapp.com",
+    "password": "hashedPassword123",
+    "isActive": true,
+    "createdAt": ISODate("2024-03-14T10:00:00Z"),
+    "updatedAt": ISODate("2024-03-14T10:00:00Z")
+  },
+  {
+    "_id": ObjectId("65f2f123a123b456c789d333"),
+    "userId": ObjectId("65f2f123a123b456c789d333"),
+    "userType": "nurse",
+    "phoneNumber": "+919876543212",
+    "email": "nurse@healthapp.com",
+    "password": "hashedPassword123",
+    "isActive": true,
+    "createdAt": ISODate("2024-03-14T10:00:00Z"),
+    "updatedAt": ISODate("2024-03-14T10:00:00Z")
+  },
+  {
+    "_id": ObjectId("65f2f123a123b456c789d444"),
+    "userId": ObjectId("65f2f123a123b456c789d444"),
+    "userType": "doctor",
+    "phoneNumber": "+919876543213",
+    "email": "doctor@healthapp.com",
+    "password": "hashedPassword123",
+    "isActive": true,
+    "createdAt": ISODate("2024-03-14T10:00:00Z"),
+    "updatedAt": ISODate("2024-03-14T10:00:00Z")
+  },
+  {
+    "_id": ObjectId("65f2f123a123b456c789d555"),
+    "userId": ObjectId("65f2f123a123b456c789d555"),
+    "userType": "empanelled_doctor",
+    "phoneNumber": "+919876543214",
+    "email": "emp.doctor@healthapp.com",
+    "password": "hashedPassword123",
+    "isActive": true,
+    "createdAt": ISODate("2024-03-14T10:00:00Z"),
+    "updatedAt": ISODate("2024-03-14T10:00:00Z")
+  }
+]
+
+// Admin Collection
+[
+  {
+    "_id": ObjectId("65f2f123a123b456c789d111"),
+    "name": "John Admin",
+    "email": "admin@healthapp.com",
+    "phoneNumber": "+919876543210",
+    "dateOfBirth": ISODate("1990-01-01T00:00:00Z"),
+    "gender": "male",
+    "profilePicture": "https://example.com/admin.jpg",
+    "role": "admin",
+    "createdAt": ISODate("2024-03-14T10:00:00Z"),
+    "updatedAt": ISODate("2024-03-14T10:00:00Z")
+  }
+]
+
+// Navigator Collection
+[
+  {
+    "_id": ObjectId("65f2f123a123b456c789d222"),
+    "name": "Sarah Navigator",
+    "email": "navigator@healthapp.com",
+    "phone": "+919876543211",
+    "dob": ISODate("1992-03-15T00:00:00Z"),
+    "gender": "female",
+    "profilePic": "https://example.com/navigator.jpg",
+    "languagesSpoken": ["English", "Hindi"],
+    "introduction": "Experienced healthcare navigator with 5 years of experience",
+    "total_assigned_members": 10,
+    "rating": 4.5,
+    "role": "navigator",
+    "createdAt": ISODate("2024-03-14T10:00:00Z"),
+    "updatedAt": ISODate("2024-03-14T10:00:00Z")
+  }
+]
+
+// Nurse Collection
+[
+  {
+    "_id": ObjectId("65f2f123a123b456c789d333"),
+    "name": "Mary Nurse",
+    "schoolId": "SCH001",
+    "email": "nurse@healthapp.com",
+    "phone": "+919876543212",
+    "dob": ISODate("1988-07-20T00:00:00Z"),
+    "gender": "female",
+    "profilePic": "https://example.com/nurse.jpg",
+    "languagesSpoken": ["English", "Hindi", "Telugu"],
+    "introduction": "Registered nurse with 8 years of experience in school healthcare",
+    "role": "nurse",
+    "createdAt": ISODate("2024-03-14T10:00:00Z"),
+    "updatedAt": ISODate("2024-03-14T10:00:00Z")
+  }
+]
+
+// Doctor Collection
+[
+  {
+    "_id": ObjectId("65f2f123a123b456c789d444"),
+    "name": "Dr. James Wilson",
+    "email": "doctor@healthapp.com",
+    "phone": "+919876543213",
+    "gender": "male",
+    "qualification": ["MBBS", "MD"],
+    "medicalCouncilRegistrationNumber": "MED123456",
+    "experienceYears": 10,
+    "languagesSpoken": ["English", "Hindi"],
+    "serviceTypes": ["online", "offline"],
+    "introduction": "General Physician with expertise in family medicine",
+    "onlineConsultationTimeSlots": [
+      {
+        "day": "Monday",
+        "from": "09:00",
+        "to": "13:00"
+      },
+      {
+        "day": "Wednesday",
+        "from": "14:00",
+        "to": "18:00"
+      }
+    ],
+    "profilePic": "https://example.com/doctor.jpg",
+    "areas": ["General Medicine", "Family Practice"],
+    "role": "doctor",
+    "total_assigned_members": 15,
+    "rating": 4.8,
+    "createdAt": ISODate("2024-03-14T10:00:00Z"),
+    "updatedAt": ISODate("2024-03-14T10:00:00Z")
+  }
+]
+
+// Empanelled Doctor Collection
+[
+  {
+    "_id": ObjectId("65f2f123a123b456c789d555"),
+    "name": "Dr. Emily Brown",
+    "email": "emp.doctor@healthapp.com",
+    "phone": "+919876543214",
+    "gender": "female",
+    "qualification": ["MBBS", "MS", "DNB"],
+    "medicalCouncilRegistrationNumber": "MED789012",
+    "experienceInYrs": 12,
+    "languagesSpoken": ["English", "Hindi", "Marathi"],
+    "serviceType": ["online", "offline"],
+    "introduction": "Specialist in Orthopedics",
+    "specializations": ["Orthopedics", "Sports Medicine"],
+    "specializedIn": "Joint Replacement",
+    "workplaces": [
+      {
+        "providerId": ObjectId("65f2f123a123b456c789d666"),
+        "type": "hospital",
+        "name": "City Hospital",
+        "offline": {
+          "consultationFees": 1000,
+          "timeSlots": [
+            {
+              "day": "Tuesday",
+              "from": "10:00",
+              "to": "14:00"
+            },
+            {
+              "day": "Thursday",
+              "from": "15:00",
+              "to": "19:00"
+            }
+          ]
+        },
+        "online": {
+          "consultationFees": 800,
+          "timeSlots": [
+            {
+              "day": "Monday",
+              "from": "09:00",
+              "to": "12:00"
+            }
+          ]
+        }
+      }
+    ],
+    "average_consultation_fees": 900,
+    "profilePic": "https://example.com/emp-doctor.jpg",
+    "role": "empanelled_doctor",
+    "rating": 4.9,
+    "createdAt": ISODate("2024-03-14T10:00:00Z"),
+    "updatedAt": ISODate("2024-03-14T10:00:00Z")
+  }
+]

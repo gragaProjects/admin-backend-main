@@ -1,0 +1,106 @@
+we are going to work on a project of health startup named 'assisthealth'. 
+for more info you can reference this link: https://assisthealth.in
+
+AssistHealth: Your All-in-One Healthcare Solution. We are dedicated to ensuring you receive the finest medical care and support available.
+At AssistHealth, we are dedicated to empowering individuals and their families on their health journey. We understand that navigating the complexities of the healthcare system can be overwhelming, and that's why we're here to provide comprehensive support and personalized solutions.
+We offer a wide range of services designed to address every aspect of your healthcare journey. From finding the right specialists to organizing health records, from seamless transitions from hospital to home to comprehensive health education and support, we are here to guide you every step of the way.
+We invite you to join AssistHealth and experience the difference in healthcare support. Whether you are seeking personalized assistance, expert navigation, or comprehensive care coordination, we have the solutions to meet your needs. Trust us to be your partner on your health journey, providing the guidance and support you deserve.
+
+our customers are:
+1. any person who is seeking healthcare services
+2. students of any educational institution
+
+we are going to develop a web and mobile app for the same.
+
+there are going to be 3 different web apps:
+1. admin web app [used by the admin and navigators]
+2. doctor web app [used by the doctors]
+3. member/students web app [used by the patients]
+4. member/students mobile app [used by the patients]
+5. AHANA web app [used by Students]
+
+roles and responsibilities:
+1. admin:
+    - manage the dashboard
+    - crud operations for navigators.
+    - assign navigators to the member/students.
+    - crud operations for doctors.
+    - assign doctors to the member/students.
+    - manage the member/students accounts
+    - manage members/students medical history
+    - manage members subprofiles
+    - book appointments
+    - crud operations for appointments
+    - crud operations for empanelled doctors.
+    - assign empanelled doctors to the member/students.
+    - manage ecommerce of medicines and healthcare products
+    - manage blog
+    - manage AHANA accounts
+
+2. navigator:
+    - manage the dashboard
+    - view list of doctors
+    - assign doctors to the member/students.
+    - add and view list of empanelled doctors
+    - assign empanelled doctors to the member/students.
+    - manage crud operations of members/students
+    - manage members/students medical history
+    - manage members subprofiles
+    - search for members/students
+    - generate assessment reports for students
+    - manage infirmary for students
+    - generate reports for students
+    - book appointments
+    - crud operations for appointments
+    - manage blog
+
+3. doctor:
+    - manage the dashboard
+    - add members
+    - view assigned members
+    - see medical history of assigned members
+    - see subprofiles of assigned members
+    - see assigned appointments and manage them
+    - add and view list of prescriptions
+    - add and view list of lab reports
+    - manage blog
+
+4. member/students:
+    - manage the member/students web app
+    - manage the member/students mobile app
+    - manage the dashboard
+    - edit profile
+    - view medical history
+    - view,book and manage appointments
+    - view assigned navigators
+    - view assigned doctors
+    - view and manage prescriptions
+    - view and add subprofiles
+    - view and manage lab reports
+    - purchase medicines and healthcare products
+    - read blogs
+    - chat/call with navigators
+
+
+
+5. AHANA:
+    - manage the AHANA web app
+    - manage the dashboard
+    - view assigned students
+    - see medical history of assigned students
+    - see assigned appointments and manage them
+    - chat/call with navigators
+    - chat/call with students
+    - view and manage infirmary
+    - view,book and manage appointments
+    - Manage basic medicines and healthcare products(Inventory management)
+
+
+
+
+
+
+
+
+
+

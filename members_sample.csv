@@ -1,0 +1,3 @@
+name,email,phone,dob,gender,bloodGroup,heightInFt,weightInKg,address,employmentStatus,educationLevel,maritalStatus
+John Doe,john.doe@example.com,+1234567890,1990-05-15,Male,O+,5.9,75,"123 Main St, City, Country",Employed,Bachelor's Degree,Married
+Jane Smith,jane.smith@example.com,+1987654321,1988-08-22,Female,A+,5.6,62,"456 Park Ave, Town, Country",Self-Employed,Master's Degree,Single

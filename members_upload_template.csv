@@ -1,0 +1,2 @@
+row_no,name,phone,email,dob,gender,bloodGroup,heightInFt,weightInKg,emergencyContact.name,emergencyContact.relation,emergencyContact.phone,address.description,address.landmark,address.pinCode,address.region,address.city,address.state,address.country,employmentStatus,educationLevel,maritalStatus,additionalInfo,isSubprofile,primaryMemberId
+1,John Doe,+919876543210,john@example.com,1990-01-01,male,O+,5.8,70,Jane Doe,spouse,+919876543211,123 Main St,Near City Park,560001,Koramangala,Bangalore,Karnataka,India,employed,graduate,single,Allergic to peanuts,false,1234

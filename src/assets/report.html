@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h1 style="text-align: center; font-size: 28px; margin: 30px 0;">Student Health Assessment Report</h1>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px auto;
+            line-height: 1.6;
+            color: #333;
+            max-width: 70%;
+            padding: 0 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+        .logo {
+            max-width: 120px;
+            height: auto;
+            object-fit: contain;
+        }
+        .report-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 30px 0;
+            color: white;
+            text-transform: uppercase;
+            background-color: #000080;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .section {
+            margin: 25px 0;
+            padding: 0 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 -15px 15px -15px;
+            color: white;
+            background-color: #000080;
+            padding: 8px 15px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 30px;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .info-label {
+            font-weight: bold;
+            min-width: 160px;
+            color: #444;
+        }
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .signatures {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            padding: 0 50px;
+        }
+        .signature-box {
+            border-top: 1px solid black;
+            width: 250px;
+            text-align: center;
+            padding-top: 10px;
+        }
+        .signature-box p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        /* Specific section styles */
+        .oral-health .info-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .oral-health .info-item {
+            font-size: 15px;
+        }
+        /* Checkbox styling */
+        .oral-health .info-item::before {
+            content: "☐";
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        /* Additional Comments section */
+        .additional-comments .info-item {
+            grid-column: 1 / -1;
+        }
+        /* Footer contact info */
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer p:last-child {
+            margin-top: 15px;
+            color: #999;
+            font-size: 12px;
+        }
+        /* For PDF generation - ensure consistent rendering */
+        @media print {
+            body {
+                margin: 0;
+                padding: 20px;
+                max-width: 100%;
+            }
+            .report-title, .section-title {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+            .signatures {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo logo-left">
+                <img src="./images/eye_foundation.jpg" alt="Eye foundation Logo" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="logo">
+                <img src="./images/assist-health-logo.jpg" alt="AssistHealth Logo" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="logo logo-right">
+                <img src="./images/school.jpg" alt="School logo" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+        <h1 class="report-title" style="margin: 20px; text-align: center;">Student Heath Assessment Report</h1>
+
+        <div class="section">
+            <h2 class="section-title">Student Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Student Name:</span>
+                    <span>Test</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Age:</span>
+                    <span>14</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Gender:</span>
+                    <span>Male</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AssistHealth ID:</span>
+                    <span>AAL98</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Date Of Assessment:</span>
+                    <span>24-Mar-2025</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">School Name:</span>
+                    <span>wgs</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Grade:</span>
+                    <span>Grade 1</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Section:</span>
+                    <span>Dew</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Vital Signs</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Height:</span>
+                    <span>145 Cms</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Weight:</span>
+                    <span>30 Kg</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">BMI:</span>
+                    <span>30 Kg/M2</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Temperature:</span>
+                    <span>98°F</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Pulse:</span>
+                    <span>98 BPM</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">SpO2:</span>
+                    <span>98</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">BP:</span>
+                    <span>98</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Vision & Hearing</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Vision Right:</span>
+                    <span>6/6</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Vision Left:</span>
+                    <span>6/6</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Vision Comment:</span>
+                    <span>Normal</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Hearing Comments:</span>
+                    <span>Normal</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section oral-health">
+            <h2 class="section-title">Oral Health</h2>
+            <div class="info-grid">
+                <div class="info-item">✓ Normal</div>
+                <div class="info-item">Decayed</div>
+                <div class="info-item">Dental Strains</div>
+                <div class="info-item">Cross Bite</div>
+                <div class="info-item">Dentures</div>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Any Other Dental Issues:</span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="section additional-comments">
+            <h2 class="section-title">Additional Comments</h2>
+            <div class="info-item">
+                <span class="info-label">If Any Other Concern:</span>
+                <span>NA</span>
+            </div>
+        </div>
+
+        <div class="signatures">
+            <div class="signature-box">
+                <p>School Health Doctor Signature</p>
+            </div>
+            <div class="signature-box">
+                <p>Parent/Guardian Signature</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Email: infoassisthealth@gmail.com</p>
+            <p>Phone: +91-9611232519 / 69 / 93</p>
+            <p>Address: #850, 3rd Floor, D Block, Opp Cafe Coffee Day, Sahakar nagar, Bangalore 560092</p>
+            <p>Powered by TCPDF (www.tcpdf.org)</p>
+        </div>
+    </div>
+</body>
+</html>

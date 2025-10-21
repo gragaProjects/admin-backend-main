@@ -1,0 +1,3 @@
+name,email,phone,dob,gender,bloodGroup,heightInFt,weightInKg,address,schoolId,grade,section,rollNumber,academicYear
+Rahul Kumar,rahul.k@example.com,+1234567890,2010-03-15,Male,B+,5.2,45,"123 Student Housing, School Road, City",SCH001,Grade 8,Section A,2023001,2023-24
+Priya Singh,priya.s@example.com,+1987654321,2011-06-22,Female,O+,5.0,42,"456 College Ave, Education City",SCH001,Grade 7,Section B,2023045,2023-24

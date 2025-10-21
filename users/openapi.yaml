@@ -1,0 +1,970 @@
+openapi: 3.0.0
+info:
+  title: Assist Health Users API
+  version: 1.0.0
+  description: API specification for Assist Health user management system
+  contact:
+    name: API Support
+    email: support@assisthealth.com
+
+servers:
+  - url: '{baseUrl}/api/v1'
+    variables:
+      baseUrl:
+        default: http://localhost:3000
+        description: Base URL of the API server
+
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        description:
+          type: string
+        landmark:
+          type: string
+        pinCode:
+          type: string
+        region:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        location:
+          type: object
+          properties:
+            latitude:
+              type: number
+            longitude:
+              type: number
+
+    EmergencyContact:
+      type: object
+      properties:
+        name:
+          type: string
+        relationship:
+          type: string
+        number:
+          type: string
+
+    PersonalHistory:
+      type: object
+      properties:
+        empStatus:
+          type: string
+          enum: [employed, unemployed, self_employed, retired, student, homemaker]
+        educationLevel:
+          type: string
+          enum: [primary, secondary, higher_secondary, graduate, post_graduate, doctorate]
+        maritalStatus:
+          type: string
+          enum: [single, married, divorced, widowed]
+
+    User:
+      type: object
+      properties:
+        profilePic:
+          type: string
+        name:
+          type: string
+        emailId:
+          type: string
+        gender:
+          type: string
+          enum: [male, female, other]
+        number:
+          type: string
+        dob:
+          type: string
+          format: date
+        bloodGroup:
+          type: string
+        height:
+          type: number
+        weight:
+          type: number
+        createdAt:
+          type: string
+          format: date-time
+        emergencyContact:
+          $ref: '#/components/schemas/EmergencyContact'
+        accountDetails:
+          type: object
+          properties:
+            userId:
+              type: string
+            password:
+              type: string
+        personalHistory:
+          $ref: '#/components/schemas/PersonalHistory'
+        address:
+          type: array
+          items:
+            allOf:
+              - $ref: '#/components/schemas/Address'
+              - type: object
+                properties:
+                  type:
+                    type: string
+
+    Doctor:
+      type: object
+      properties:
+        profilePic:
+          type: string
+        name:
+          type: string
+        gender:
+          type: string
+          enum: [male, female, other]
+        speciality:
+          type: string
+        education:
+          type: array
+          items:
+            type: string
+        doctorId:
+          type: string
+        languageSpoken:
+          type: array
+          items:
+            type: string
+        bio:
+          type: string
+
+    Navigator:
+      type: object
+      properties:
+        profilePic:
+          type: string
+        name:
+          type: string
+        number:
+          type: string
+        emailId:
+          type: string
+        gender:
+          type: string
+          enum: [male, female, other]
+        languageSpoken:
+          type: array
+          items:
+            type: string
+        bio:
+          type: string
+
+    Appointment:
+      type: object
+      properties:
+        subprofile:
+          type: string
+        service:
+          type: string
+        speciality:
+          type: string
+        hospital:
+          type: string
+        date:
+          type: string
+          format: date
+        time:
+          type: string
+        additionalInfo:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        createdAt:
+          type: string
+          format: date-time
+
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message describing what went wrong
+        data:
+          type: object
+          nullable: true
+          description: Additional error details if any
+
+    SuccessResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Success message describing the operation result
+        data:
+          type: object
+          description: Response data
+
+    ArraySuccessResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Success message describing the operation result
+        data:
+          type: array
+          description: Response data array
+
+    Prescription:
+      type: object
+      properties:
+        pdfUrl:
+          type: string
+        photoUrl:
+          type: string
+        name:
+          type: string
+        date:
+          type: string
+          format: date
+
+    MedicalHistory:
+      type: object
+      properties:
+        name:
+          type: string
+        date:
+          type: string
+          format: date
+        pdfUrl:
+          type: string
+
+    Product:
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        imageUrl:
+          type: array
+          items:
+            type: string
+        discountPrice:
+          type: number
+        stock:
+          type: integer
+        features:
+          type: array
+          items:
+            type: string
+
+    Package:
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+        imageUrl:
+          type: string
+        description:
+          type: string
+        features:
+          type: array
+          items:
+            type: string
+
+    Assessment:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        description:
+          type: string
+        class:
+          type: string
+
+    Infirmary:
+      type: object
+      properties:
+        complaint:
+          type: string
+        date:
+          type: string
+          format: date
+        status:
+          type: string
+        treatmentNote:
+          type: string
+        consentFrom:
+          type: string
+
+    Student:
+      type: object
+      properties:
+        name:
+          type: string
+        emailId:
+          type: string
+        number:
+          type: string
+        dob:
+          type: string
+          format: date
+        education:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        profilePic:
+          type: string
+        gender:
+          type: string
+          enum: [male, female, other]
+        bloodGroup:
+          type: string
+        height:
+          type: number
+        weight:
+          type: number
+
+    Nurse:
+      type: object
+      properties:
+        name:
+          type: string
+        number:
+          type: string
+        languageSpoken:
+          type: array
+          items:
+            type: string
+        education:
+          type: string
+        speciality:
+          type: string
+        bio:
+          type: string
+        profilePic:
+          type: string
+
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: Resource already exists
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+paths:
+  /users:
+    post:
+      summary: Create a new user
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - emailId
+                - number
+              properties:
+                profilePic:
+                  type: string
+                name:
+                  type: string
+                emailId:
+                  type: string
+                gender:
+                  type: string
+                  enum: [male, female, other]
+                number:
+                  type: string
+                dob:
+                  type: string
+                  format: date
+                bloodGroup:
+                  type: string
+                height:
+                  type: number
+                weight:
+                  type: number
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/User'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '409':
+          $ref: '#/components/responses/Conflict'
+
+  /users/{userId}:
+    get:
+      summary: Get user by ID
+      operationId: getUserById
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User details retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/User'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    put:
+      summary: Update user by ID
+      operationId: updateUserById
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                emergencyContact:
+                  $ref: '#/components/schemas/EmergencyContact'
+                personalHistory:
+                  $ref: '#/components/schemas/PersonalHistory'
+                address:
+                  $ref: '#/components/schemas/Address'
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/User'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /users/{userId}/subprofiles:
+    get:
+      summary: Get subprofiles list for a user
+      operationId: getSubprofilesList
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Subprofiles retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ArraySuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/User'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    post:
+      summary: Create a new subprofile
+      operationId: createSubprofile
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: Subprofile created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/User'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /users/{userId}/subprofiles/{subprofileId}:
+    get:
+      summary: Get subprofile by ID
+      operationId: getSubprofileById
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: subprofileId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Subprofile retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/User'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /doctors/{doctorId}:
+    get:
+      summary: Get doctor by ID
+      operationId: getDoctorById
+      parameters:
+        - name: doctorId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Doctor details retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Doctor'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /navigators/{navigatorId}:
+    get:
+      summary: Get navigator by ID
+      operationId: getNavigatorById
+      parameters:
+        - name: navigatorId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Navigator details retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Navigator'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /appointments:
+    post:
+      summary: Create a new appointment
+      operationId: createAppointment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Appointment'
+      responses:
+        '201':
+          description: Appointment created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Appointment'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+    get:
+      summary: Get appointments list
+      operationId: getAppointments
+      responses:
+        '200':
+          description: Appointments retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ArraySuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            service:
+                              type: string
+                            additionalInfo:
+                              type: string
+                            hospital:
+                              type: string
+                            date:
+                              type: string
+                              format: date
+                            time:
+                              type: string
+                            status:
+                              type: string
+
+  /prescriptions/{prescriptionId}:
+    get:
+      summary: Get prescription by ID
+      operationId: getPrescriptionById
+      parameters:
+        - name: prescriptionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Prescription retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Prescription'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /prescriptions:
+    get:
+      summary: Get prescription list
+      operationId: getPrescriptionList
+      responses:
+        '200':
+          description: Prescriptions retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ArraySuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Prescription'
+
+    post:
+      summary: Create a new prescription
+      operationId: createPrescription
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Prescription'
+      responses:
+        '201':
+          description: Prescription created successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Prescription'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /medical-history/{historyId}:
+    get:
+      summary: Get medical history by ID
+      operationId: getMedicalHistoryById
+      parameters:
+        - name: historyId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Medical history retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/MedicalHistory'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /medical-history:
+    get:
+      summary: Get medical history list
+      operationId: getMedicalHistoryList
+      responses:
+        '200':
+          description: Medical history list retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ArraySuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/MedicalHistory'
+
+  /products/{productId}:
+    get:
+      summary: Get product by ID
+      operationId: getProductById
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Product'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /products:
+    get:
+      summary: Get product list
+      operationId: getProductList
+      responses:
+        '200':
+          description: Products retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ArraySuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Product'
+
+  /packages/{packageId}:
+    get:
+      summary: Get package by ID
+      operationId: getPackageById
+      parameters:
+        - name: packageId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Package retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Package'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /packages:
+    get:
+      summary: Get package list
+      operationId: getPackageList
+      responses:
+        '200':
+          description: Packages retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ArraySuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Package'
+
+  /students/assessments:
+    get:
+      summary: Get assessments list
+      operationId: getAssessmentsList
+      responses:
+        '200':
+          description: Assessments retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ArraySuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Assessment'
+
+  /students/infirmary:
+    get:
+      summary: Get infirmary records
+      operationId: getInfirmaryRecords
+      responses:
+        '200':
+          description: Infirmary records retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ArraySuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Infirmary'
+
+  /students/{studentId}:
+    get:
+      summary: Get student by ID
+      operationId: getStudentById
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Student retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Student'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /nurses/{nurseId}:
+    get:
+      summary: Get nurse by ID
+      operationId: getNurseById
+      parameters:
+        - name: nurseId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Nurse retrieved successfully
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SuccessResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/Nurse'
+        '404':
+          $ref: '#/components/responses/NotFound' 

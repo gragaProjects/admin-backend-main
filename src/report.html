@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Health Assessment Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .header { text-align: center; }
+        .logos { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .logos img { height: 80px; }
+        .report-section { border: 1px solid #000; padding: 10px; margin-bottom: 10px; }
+        .section-title { font-weight: bold; margin-bottom: 5px; }
+        .data-table { width: 100%; border-collapse: collapse; }
+        .data-table td, .data-table th { border: 1px solid #000; padding: 5px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Student Health Assessment Report</h2>
+    </div>
+    
+    <div class="logos">
+        <img src="../src/assets/images/eye_foundation.jpg" alt="Eye Foundation Logo">
+        <img src="../src/assets/images/assist-health-logo.jpg" alt="AssistHealth Logo">
+        <img src="../src/assets/images/school.jpg" alt="School Logo">
+    </div>
+    
+    <div class="report-section">
+        <div class="section-title">Student Information</div>
+        <table class="data-table">
+            <tr><th>Name</th><td>{student_name}</td></tr>
+            <tr><th>Age</th><td>{age}</td></tr>
+            <tr><th>Gender</th><td>{gender}</td></tr>
+            <tr><th>AssistHealth ID</th><td>{assist_health_id}</td></tr>
+            <tr><th>School Name</th><td>{school_name}</td></tr>
+            <tr><th>Grade</th><td>{grade}</td></tr>
+            <tr><th>Section</th><td>{section}</td></tr>
+            <tr><th>Date of Assessment</th><td>{date_of_assessment}</td></tr>
+        </table>
+    </div>
+    
+    <div class="report-section">
+        <div class="section-title">Vital Signs</div>
+        <table class="data-table">
+            <tr><th>Height</th><td>{height} cm</td></tr>
+            <tr><th>Weight</th><td>{weight} kg</td></tr>
+            <tr><th>BMI</th><td>{bmi}</td></tr>
+            <tr><th>Temperature</th><td>{temperature} °F</td></tr>
+            <tr><th>Pulse</th><td>{pulse} BPM</td></tr>
+            <tr><th>SpO2</th><td>{spo2} %</td></tr>
+            <tr><th>BP</th><td>{bp} mmHg</td></tr>
+        </table>
+    </div>
+    
+    <div class="report-section">
+        <div class="section-title">Vision</div>
+        <table class="data-table">
+            <tr><th>Right Eye</th><td>{right_eye}</td></tr>
+            <tr><th>Left Eye</th><td>{left_eye}</td></tr>
+        </table>
+    </div>
+    
+    <div class="report-section">
+        <div class="section-title">Oral Health</div>
+        <table class="data-table">
+            <tr><th>Dental Condition</th><td>{dental_condition}</td></tr>
+            <tr><th>Other Issues</th><td>{other_dental_issues}</td></tr>
+        </table>
+    </div>
+    
+    <div class="report-section">
+        <div class="section-title">Hearing</div>
+        <table class="data-table">
+            <tr><th>Comments</th><td>{hearing_comments}</td></tr>
+        </table>
+    </div>
+    
+    <div class="report-section">
+        <div class="section-title">Additional Comments</div>
+        <p>{additional_comments}</p>
+    </div>
+    
+    <div class="report-section">
+        <div class="section-title">Signatures</div>
+        <p><strong>School Health Doctor:</strong> ______________________</p>
+        <p><strong>Parent/Guardian:</strong> ______________________</p>
+    </div>
+    
+    <footer>
+        <p>Email: infoassisthealth@gmail.com | Phone: +91-9611232519 / 69 / 93</p>
+        <p>Address: #850, 3rd Floor, D Block, Opp Cafe Coffee Day, Sahakar Nagar, Bangalore 560092</p>
+    </footer>
+</body>
+</html>
