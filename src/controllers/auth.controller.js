@@ -89,7 +89,7 @@ class AuthController {
         userType: user.userType
       },
       process.env.JWT_SECRET || 'digital_conquest',
-      { expiresIn: process.env.JWT_EXPIRES_IN || '1023230h' }
+      { expiresIn: process.env.JWT_EXPIRES_IN || '1h' }
     );
   }
 
