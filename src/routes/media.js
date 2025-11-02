@@ -1,154 +1,114 @@
-require('dotenv').config(); // <--- add this line on top
+require('dotenv').config(); // Load environment variables
 const express = require('express');
 const router = express.Router();
 
-const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
 const multer = require('multer');
 const crypto = require('crypto');
-const path = require('path')
+const path = require('path');
+const { v2: cloudinary } = require('cloudinary');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
-// Configure AWS S3 Client
-// const s3Client = new S3Client({
-//     region: 'ap-south-1',
-//     credentials: {
-//         accessKeyId: '',
-//         secretAccessKey: ''
-//     }
-// });
-const s3Client = new S3Client({
-    region: process.env.AWS_REGION,
-    credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-    }
+// ✅ Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-// Configure multer for memory storage
-const upload = multer({
-    storage: multer.memoryStorage(),
-    limits: {
-      fileSize: 10 * 1024 * 1024, // 10MB limit
-    },
-    fileFilter: (req, file, cb) => {
-      const allowedTypes = [
-        'image/jpeg',
-        'image/png',
-        'image/gif',
-        'image/webp',
-        'image/svg+xml',
-        'image/bmp',
-        'image/tiff',
-        'image/heic',
-        'image/heif',
-        'text/csv',
-        'application/pdf',
-        'application/vnd.ms-excel',
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-        'text/plain'
-      ];
-      
-      if (!allowedTypes.includes(file.mimetype)) {
-        console.log(`File upload rejected - MIME type: ${file.mimetype}, Original name: ${file.originalname}`);
-        const error = new Error(`Invalid file type: ${file.mimetype}. Allowed types: ${allowedTypes.join(', ')}`);
-        error.code = 'INVALID_FILE_TYPE';
-        return cb(error, false);
-      }
-      cb(null, true);
-    }
-});
-// Helper function to generate secure random filename
-const generateSecureFilename = (originalname) => {
+// ✅ Configure Cloudinary Storage for Multer
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: async (req, file) => {
+    // generate unique filename
     const timestamp = Date.now();
-    const randomString = crypto.randomBytes(16).toString('hex');
-    const extension = path.extname(originalname);
-    return `${timestamp}-${randomString}${extension}`;
-};
+    const randomString = crypto.randomBytes(8).toString('hex');
+    const extension = path.extname(file.originalname).replace('.', '');
+    const filename = `${timestamp}-${randomString}.${extension}`;
 
-// Upload endpoint
+    return {
+      folder: 'assisthealth/uploads', // You can change folder name
+      public_id: filename,
+      resource_type: 'auto', // auto-detect (image, video, pdf, etc.)
+      allowed_formats: ['jpg', 'png', 'jpeg', 'gif', 'webp', 'svg', 'pdf', 'xlsx', 'csv', 'txt']
+    };
+  },
+});
+
+// ✅ Multer setup with limits and filters
+const upload = multer({
+  storage,
+  limits: {
+    fileSize: 10 * 1024 * 1024, // 10MB
+  },
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = [
+      'image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml',
+      'application/pdf', 'application/vnd.ms-excel',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      'text/plain', 'text/csv'
+    ];
+
+    if (!allowedTypes.includes(file.mimetype)) {
+      console.log(`❌ Invalid file type: ${file.mimetype}`);
+      const error = new Error(`Invalid file type: ${file.mimetype}`);
+      error.code = 'INVALID_FILE_TYPE';
+      return cb(error, false);
+    }
+    cb(null, true);
+  },
+});
+
+// ✅ Upload endpoint
 router.post('/upload', upload.single('file'), async (req, res) => {
-    try {
-      if (!req.file) {
-        return res.status(400).json({
-          success: false,
-          error: {
-            code: 'NO_FILE',
-            message: 'No file provided'
-          }
-        });
-      }
-  
-      const file = req.file;
-      const secureFilename = generateSecureFilename(file.originalname);
-  
-      // Prepare S3 upload parameters
-      const uploadParams = {
-          Bucket: process.env.AWS_BUCKET_NAME,   // ✅ from .env now
-        //Bucket: `assisthealth-media`,
-        Key: `uploads/${secureFilename}`,
-        Body: file.buffer,
-        ContentType: file.mimetype,
-        ACL: 'public-read', // Make sure your bucket policy allows this
-        ServerSideEncryption: 'AES256' // Enable server-side encryption
-      };
-  
-      // Upload to S3
-      const command = new PutObjectCommand(uploadParams);
-      await s3Client.send(command);
-  
-      // Return success response
-      res.status(200).json({
-        success: true,
-        imageUrl: `https://${ process.env.AWS_BUCKET_NAME}.s3.ap-south-1.amazonaws.com/uploads/${secureFilename}`,
-        metadata: {
-          fileName: secureFilename,
-          fileSize: file.size,
-          mimeType: file.mimetype,
-          uploadedAt: new Date().toISOString()
-        }
+  try {
+    if (!req.file || !req.file.path) {
+      return res.status(400).json({
+        success: false,
+        error: { code: 'NO_FILE', message: 'No file provided' },
       });
-  
-    } catch (error) {
-      console.error('Upload error:', error);
-  
-      // Handle specific error types
-      if (error.code === 'INVALID_FILE_TYPE') {
-        return res.status(400).json({
-          success: false,
-          error: {
-            code: 'INVALID_FILE_TYPE',
-            message: error.message,
-            details: {
-              allowedTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml', 'image/bmp', 'image/tiff', 'image/heic', 'image/heif', 'text/csv', 'application/pdf', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'text/plain']
-            }
-          }
-        });
-      }
-  
-      if (error.code === 'LIMIT_FILE_SIZE') {
-        return res.status(400).json({
-          success: false,
-          error: {
-            code: 'LIMIT_FILE_SIZE',
-            message: 'File size exceeds limit',
-            details: {
-              maxSize: 10 * 1024 * 1024 // 10MB in bytes
-            }
-          }
-        });
-      }
-  
-      // Generic error response
-      res.status(503).json({
+    }
+
+    res.status(200).json({
+      success: true,
+      imageUrl: req.file.path,
+      fileUrl: req.file.path,
+      metadata: {
+        fileName: req.file.filename,
+        mimeType: req.file.mimetype,
+        uploadedAt: new Date().toISOString(),
+      },
+    });
+  } catch (error) {
+    console.error('Upload error:', error);
+
+    if (error.code === 'INVALID_FILE_TYPE') {
+      return res.status(400).json({
         success: false,
         error: {
-          code: 'UPLOAD_FAILED',
-          message: 'Failed to upload to storage service',
-          details: {
-            retryAfter: 30
-          }
-        }
+          code: 'INVALID_FILE_TYPE',
+          message: error.message,
+        },
       });
     }
+
+    if (error.code === 'LIMIT_FILE_SIZE') {
+      return res.status(400).json({
+        success: false,
+        error: {
+          code: 'LIMIT_FILE_SIZE',
+          message: 'File size exceeds 10MB limit',
+        },
+      });
+    }
+
+    res.status(503).json({
+      success: false,
+      error: {
+        code: 'UPLOAD_FAILED',
+        message: 'Failed to upload to Cloudinary',
+      },
+    });
+  }
 });
 
 //upload csv to s3 

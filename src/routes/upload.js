@@ -15,7 +15,7 @@ router.post('/upload',
       const fileUrl = await s3Service.getSignedUrl(fileName);
 
       res.json({
-        message: 'File uploaded successfully',
+        message: 'File uploaded successfully  Test',
         fileName,
         fileUrl
       });
