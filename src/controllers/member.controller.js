@@ -864,6 +864,7 @@ class MemberController {
             }],
             onBoarded: true,
             termsAndConditionsAccepted: true,
+            isMember: true,
             employmentStatus: row.employmentStatus,
             educationLevel: row.educationLevel,
             maritalStatus: row.maritalStatus,
