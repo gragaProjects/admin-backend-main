@@ -1,0 +1,134 @@
+[
+  { "name": "Diabetology", "specialtyName": "General Medicine / Internal Medicine" },
+  { "name": "Hypertension Specialist", "specialtyName": "General Medicine / Internal Medicine" },
+  { "name": "Infectious Disease", "specialtyName": "General Medicine / Internal Medicine" },
+  { "name": "Critical Care Medicine", "specialtyName": "General Medicine / Internal Medicine" },
+
+  { "name": "Interventional Cardiology (Angioplasty, Stents)", "specialtyName": "Cardiology" },
+  { "name": "Non-Invasive Cardiology", "specialtyName": "Cardiology" },
+  { "name": "Pediatric Cardiology", "specialtyName": "Cardiology" },
+  { "name": "Electrophysiology (Heart Rhythm Disorders)", "specialtyName": "Cardiology" },
+  { "name": "Heart Failure Specialist", "specialtyName": "Cardiology" },
+
+  { "name": "Stroke Specialist", "specialtyName": "Neurology" },
+  { "name": "Epileptologist (Seizures)", "specialtyName": "Neurology" },
+  { "name": "Neurocritical Care", "specialtyName": "Neurology" },
+  { "name": "Neuromuscular Specialist", "specialtyName": "Neurology" },
+  { "name": "Pediatric Neurology", "specialtyName": "Neurology" },
+
+  { "name": "Brain Tumor Surgery", "specialtyName": "Neurosurgery" },
+  { "name": "Spine Surgery", "specialtyName": "Neurosurgery" },
+  { "name": "Vascular Neurosurgery", "specialtyName": "Neurosurgery" },
+  { "name": "Pediatric Neurosurgery", "specialtyName": "Neurosurgery" },
+
+  { "name": "Joint Replacement (Knee, Hip)", "specialtyName": "Orthopedics" },
+  { "name": "Spine Surgery", "specialtyName": "Orthopedics" },
+  { "name": "Sports Injury Specialist", "specialtyName": "Orthopedics" },
+  { "name": "Trauma & Fracture Specialist", "specialtyName": "Orthopedics" },
+  { "name": "Pediatric Orthopedics", "specialtyName": "Orthopedics" },
+
+  { "name": "Laparoscopic / Minimal Invasive Surgery", "specialtyName": "General Surgery" },
+  { "name": "Trauma Surgery", "specialtyName": "General Surgery" },
+  { "name": "Hernia Surgery", "specialtyName": "General Surgery" },
+  { "name": "Bariatric (Weight Loss) Surgery", "specialtyName": "General Surgery" },
+  { "name": "Breast Surgery", "specialtyName": "General Surgery" },
+
+  { "name": "Hepatology (Liver Specialist)", "specialtyName": "Gastroenterology" },
+  { "name": "Endoscopy Specialist", "specialtyName": "Gastroenterology" },
+  { "name": "Pancreatic & Biliary Disease", "specialtyName": "Gastroenterology" },
+  { "name": "Colorectal Specialist", "specialtyName": "Gastroenterology" },
+
+  { "name": "Liver Transplant Surgery", "specialtyName": "Surgical Gastroenterology" },
+  { "name": "Pancreatic Surgery", "specialtyName": "Surgical Gastroenterology" },
+  { "name": "Colorectal Surgery", "specialtyName": "Surgical Gastroenterology" },
+
+  { "name": "Asthma & Allergy Specialist", "specialtyName": "Pulmonology (Chest & Respiratory)" },
+  { "name": "Sleep Medicine", "specialtyName": "Pulmonology (Chest & Respiratory)" },
+  { "name": "Critical Respiratory Care", "specialtyName": "Pulmonology (Chest & Respiratory)" },
+  { "name": "Interventional Pulmonology", "specialtyName": "Pulmonology (Chest & Respiratory)" },
+
+  { "name": "Cosmetic Dermatology", "specialtyName": "Dermatology (Skin)" },
+  { "name": "Pediatric Dermatology", "specialtyName": "Dermatology (Skin)" },
+  { "name": "Dermatosurgery (Skin Surgery, Mole Removal)", "specialtyName": "Dermatology (Skin)" },
+  { "name": "Trichology (Hair Specialist)", "specialtyName": "Dermatology (Skin)" },
+
+  { "name": "High-Risk Pregnancy Specialist", "specialtyName": "Obstetrics & Gynecology" },
+  { "name": "IVF / Infertility Specialist", "specialtyName": "Obstetrics & Gynecology" },
+  { "name": "Fetal Medicine", "specialtyName": "Obstetrics & Gynecology" },
+  { "name": "Gynecologic Oncology (Cancer)", "specialtyName": "Obstetrics & Gynecology" },
+  { "name": "Urogynecology", "specialtyName": "Obstetrics & Gynecology" },
+
+  { "name": "Neonatology (Newborn Specialist/NICU)", "specialtyName": "Pediatrics" },
+  { "name": "Pediatric Cardiology", "specialtyName": "Pediatrics" },
+  { "name": "Pediatric Neurology", "specialtyName": "Pediatrics" },
+  { "name": "Pediatric Endocrinology", "specialtyName": "Pediatrics" },
+  { "name": "Pediatric Surgery", "specialtyName": "Pediatrics" },
+
+  { "name": "Medical Oncology (Chemotherapy)", "specialtyName": "Oncology (Cancer)" },
+  { "name": "Surgical Oncology", "specialtyName": "Oncology (Cancer)" },
+  { "name": "Radiation Oncology", "specialtyName": "Oncology (Cancer)" },
+  { "name": "Pediatric Oncology", "specialtyName": "Oncology (Cancer)" },
+  { "name": "Hemato-Oncology (Blood Cancer)", "specialtyName": "Oncology (Cancer)" },
+
+  { "name": "Head & Neck Surgery", "specialtyName": "ENT (Ear, Nose, Throat)" },
+  { "name": "Cochlear Implant Specialist", "specialtyName": "ENT (Ear, Nose, Throat)" },
+  { "name": "Voice & Speech Disorder", "specialtyName": "ENT (Ear, Nose, Throat)" },
+  { "name": "Pediatric ENT", "specialtyName": "ENT (Ear, Nose, Throat)" },
+
+  { "name": "Cataract Surgery", "specialtyName": "Ophthalmology (Eye)" },
+  { "name": "Retina Specialist", "specialtyName": "Ophthalmology (Eye)" },
+  { "name": "Cornea & Lasik Surgery", "specialtyName": "Ophthalmology (Eye)" },
+  { "name": "Pediatric Ophthalmology", "specialtyName": "Ophthalmology (Eye)" },
+  { "name": "Glaucoma Specialist", "specialtyName": "Ophthalmology (Eye)" },
+
+  { "name": "Andrology (Male Fertility)", "specialtyName": "Urology" },
+  { "name": "Endourology (Stone Removal)", "specialtyName": "Urology" },
+  { "name": "Kidney Transplant Surgery", "specialtyName": "Urology" },
+  { "name": "Female Urology", "specialtyName": "Urology" },
+
+  { "name": "Dialysis Specialist", "specialtyName": "Nephrology (Kidney Medicine)" },
+  { "name": "Kidney Transplant Physician", "specialtyName": "Nephrology (Kidney Medicine)" },
+  { "name": "Chronic Kidney Disease (CKD) Specialist", "specialtyName": "Nephrology (Kidney Medicine)" },
+
+  { "name": "Diabetes Specialist", "specialtyName": "Endocrinology (Hormones)" },
+  { "name": "Thyroid Specialist", "specialtyName": "Endocrinology (Hormones)" },
+  { "name": "PCOD/PCOS in Women", "specialtyName": "Endocrinology (Hormones)" },
+  { "name": "Adrenal & Pituitary Disorders", "specialtyName": "Endocrinology (Hormones)" },
+
+  { "name": "Arthritis Specialist", "specialtyName": "Rheumatology (Joints & Autoimmune Diseases)" },
+  { "name": "Lupus, SLE Specialist", "specialtyName": "Rheumatology (Joints & Autoimmune Diseases)" },
+  { "name": "Autoimmune Disease Expert", "specialtyName": "Rheumatology (Joints & Autoimmune Diseases)" },
+
+  { "name": "Child Psychiatry", "specialtyName": "Psychiatry (Mental Health)" },
+  { "name": "Addiction Psychiatry", "specialtyName": "Psychiatry (Mental Health)" },
+  { "name": "Geriatric Psychiatry", "specialtyName": "Psychiatry (Mental Health)" },
+  { "name": "Neuropsychiatry", "specialtyName": "Psychiatry (Mental Health)" },
+
+  { "name": "Clinical Psychologist", "specialtyName": "Psychology & Counseling" },
+  { "name": "Child Psychologist", "specialtyName": "Psychology & Counseling" },
+  { "name": "Marriage / Relationship Counselor", "specialtyName": "Psychology & Counseling" },
+
+  { "name": "Sports Physiotherapy", "specialtyName": "Physiotherapy & Rehabilitation" },
+  { "name": "Neurological Rehab (Stroke Recovery)", "specialtyName": "Physiotherapy & Rehabilitation" },
+  { "name": "Orthopedic Rehab", "specialtyName": "Physiotherapy & Rehabilitation" },
+  { "name": "Cardiac Rehabilitation", "specialtyName": "Physiotherapy & Rehabilitation" },
+
+  { "name": "Orthodontics (Braces)", "specialtyName": "Dental / Dentistry" },
+  { "name": "Oral & Maxillofacial Surgery", "specialtyName": "Dental / Dentistry" },
+  { "name": "Prosthodontics (Dentures, Implants)", "specialtyName": "Dental / Dentistry" },
+  { "name": "Pediatric Dentistry", "specialtyName": "Dental / Dentistry" },
+
+  { "name": "General Anesthesia", "specialtyName": "Anesthesiology" },
+  { "name": "Pain Management Specialist", "specialtyName": "Anesthesiology" },
+  { "name": "Critical Care Anesthesia", "specialtyName": "Anesthesiology" },
+  { "name": "Regional / Epidural Anesthesia", "specialtyName": "Anesthesiology" },
+
+  { "name": "Diagnostic Radiology (X-ray, MRI, CT)", "specialtyName": "Radiology & Imaging" },
+  { "name": "Interventional Radiology", "specialtyName": "Radiology & Imaging" },
+  { "name": "Fetal Imaging", "specialtyName": "Radiology & Imaging" },
+
+  { "name": "Clinical Pathology", "specialtyName": "Pathology / Laboratory Medicine" },
+  { "name": "Histopathology / Biopsy", "specialtyName": "Pathology / Laboratory Medicine" },
+  { "name": "Hematology (Blood Disorders Lab)", "specialtyName": "Pathology / Laboratory Medicine" },
+  { "name": "Microbiology & Infection Testing", "specialtyName": "Pathology / Laboratory Medicine" }
+]

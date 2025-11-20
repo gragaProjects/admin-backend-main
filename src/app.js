@@ -32,6 +32,8 @@ const inventoryRoutes = require('./routes/inventory.routes');
 const infirmaryRoutes = require('./routes/infirmary.routes');
 const commonRoutes = require('./routes/common.routes');
 const packageRoutes = require('./routes/package.routes');
+const healthcareRoutes = require('./routes/healthcareRoutes');
+const DoctorsRoutes = require('./routes/doctorRoutes');
 
 // Initialize express app
 const app = express();
@@ -103,6 +105,8 @@ app.use(`${apiVersion}/packages`, packageRoutes);
 app.use(`${apiVersion}/subscriptions`, subscriptionRoutes);
 app.use(`${apiVersion}/notifications`, notificationRoutes);
 app.use(`${apiVersion}/common`, commonRoutes);
+app.use(`${apiVersion}/healthcare`, healthcareRoutes);
+app.use(`${apiVersion}/healthcaredoctors`, DoctorsRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
