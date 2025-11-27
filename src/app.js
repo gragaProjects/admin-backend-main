@@ -108,6 +108,13 @@ app.use(`${apiVersion}/common`, commonRoutes);
 app.use(`${apiVersion}/healthcare`, healthcareRoutes);
 app.use(`${apiVersion}/healthcaredoctors`, DoctorsRoutes);
 
+app.use(`${apiVersion}/diagnostics-meta`, require("./routes/diagnosticMetaRoutes"));
+app.use(`${apiVersion}/diagnostics`, require("./routes/diagnosticsRoutes"));
+
+app.use(`${apiVersion}/physiotherapy`, require("./routes/physiotherapyRoutes"));
+app.use(`${apiVersion}/homecare`, require("./routes/homecareRoutes"));
+
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   logger.info('Health check endpoint called');
